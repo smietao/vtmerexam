@@ -1,0 +1,66 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>用户注册</title>
+ <link rel="stylesheet" type="text/css" href="login.css">
+ <script type="text/javascript">
+ function checkinput()
+ {
+ 	if (myform.oldpassword.value==""){
+ 		alert("请输入旧密码");
+ 		myform.oldpassword.focus();
+ 		return false;
+   }
+   if (myform.newpassword.value==""){
+ 		alert("请输入新密码");
+ 		myform.newpassword.focus();
+ 		return false;
+   }
+ var patrn=/^(?![a-zA-z]+$)(?!\d+$)(?![!.@#$%^&*]+$)[a-zA-Z\d!.@#$%^&*]{8,20}$/;
+    if (!patrn.exec(myform.newpassword.value)) {
+    	alert("密码应同时包括数字、字母、字符中的两种，且长度为8-20，请重新输入！");
+    	myform.newpassword.focus();
+    	return false;
+   }
+    if(myform.newpassword.value != myform.password1.value){
+    	alert("你两次输入的密码不一致，请重新输入！");
+    	myform.newpassword.focus();
+    	return false;
+   }
+ }//end checkinput
+  </script>
+
+</head>
+<body>
+	<form method="post" action="alter_password.php" onsubmit=" return checkinput();" 
+	name="myform">
+	<table width="500px" border="1" cellpadding="12" cellspacing="1" align="center">
+	  <tr>
+	  	<td colspan="2" class="title">修改密码
+	  	  <span class="spa">
+	  	  	[<a style="color: white" href="users.php">个人中心]</a>
+	  	  </span>
+	  	</td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">旧 密 码</td>
+	  	<td><input type="password" name="oldpassword" autocomplete="off"></td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">新密码(包括字母、数字、字符中的两种及以上，至少8位)</td>
+	  	<td><input type="password" name="newpassword" autocomplete="off"></td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">确认密码</td>
+	  	<td><input type="password" name="password1" autocomplete="off"></td>
+	  </tr>
+	  <tr>
+	  	<td colspan="2" align="center">
+	  	  <button class="but" style="text-align: center">提交修改</button>
+	  	</td>
+	  </tr>
+	</table>
+</form>
+</body>
+</html>

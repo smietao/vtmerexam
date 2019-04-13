@@ -99,6 +99,9 @@ class MyFunction{
    <span class="spa">
     [<a style="color: white" href="login.html">注销登录]</a>
    </span>
+   <span class="spa">
+    [<a style="color: white" href="change.html">修改密码]</a>
+   </span>
   <?php }  ?>
    <span class="spa">
     [<a style="color: white" href="index.php">返回首页]</a>
