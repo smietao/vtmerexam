@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>用户登录</title>	
+<script type="text/javascript">
+ function foo(){
+
+ if(myform.account.value=="")
+ {
+ alert("请输入账号");
+ myform.account.focus();
+ return false;
+ }
+ if (myform.password.value=="")
+ {
+ alert("请输入密码");
+ myform.password.focus();
+ return false;
+ }
+ }
+</script>
+<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+  <form action="login.php" method="post" onsubmit="return foo();" name="myform" >
+    <table width="400px" border="1" cellpadding="12" cellspacing="1" align="center">
+  	  <tr>
+  	  	<td colspan="2" class="title">用户登录
+  	  	  <span class="spa">
+  	  	    [<a style="color: white" href="reg.html">前往注册]</a>
+  	      </span>
+  	    </td>
+  	  </tr>
+  	  <tr>
+  	  	<td width="110px">账号或邮箱</td>
+  	  	<td><input type="text" name="account"></td>
+  	  </tr>
+  	  <tr>
+  	  	<td width="110px">密 码</td>
+  	  	<td><input type="password" name="password"></td>
+  	  </tr>
+  	  <tr>
+  	  	<td colspan="2" align="center">
+  	  	  <button class="but" style="text-align: center">立即登录</button>
+  	  	</td>
+  	  </tr>
+  	</table>
+</form>
+</body>
+</html>

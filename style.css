@@ -1,0 +1,31 @@
+   table,td,tr{
+ border: 1px solid black;
+ }
+.title{
+ background-color:#B10707 ;
+ color: white;
+ border: none;
+ }
+.centre{
+ margin-left: 45px;
+}
+.left{
+ width: 160px;
+ }
+ .bg{
+ background-color: #00AEAE;
+ color: white }
+ .fh{
+ margin-left: 18px;
+ }
+  .fp{
+ margin-left: 10px;
+ }
+ .spa{
+ margin-left: 25px;
+ }
+ .ind{
+ text-indent:2em;
+ }
+		body{background-color: #eaf3da }
+ }

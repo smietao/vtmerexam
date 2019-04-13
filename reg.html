@@ -1,0 +1,90 @@
+ 	<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>用户注册</title>
+ <link rel="stylesheet" type="text/css" href="login.css">
+
+ <script type="text/javascript">
+ function checkinput()
+ {
+ if(myform.account.value==""){
+ 	alert("请输入你的账号");
+ 	myform.account.focus();
+ 	return false;
+ }
+ if(myform.username.value==""){
+ 	alert("请输入你的用户名");
+ 	myform.username.focus();
+ 	return false;
+ }
+ if (myform.password.value==""){
+ 	alert("请输入密码");
+ 	myform.password.focus();
+ 	return false;
+ }
+ if(myform.password.value != myform.password1.value){
+ 	alert("你输入的两次密码不一致，请重新输入！");
+ 	myform.password.focus();
+ 	return false;
+ }
+ if (myform.email.value==""){
+ 	alert("请输入邮箱");
+ 	myform.email.focus();
+ 	return false;
+ }
+ var patrn1=/^\d{8,10}$/;
+ if (!patrn1.exec(myform.account.value)) {
+ 	alert("账号应为数字，且长度为8-10，请重新输入");
+    myform.password.focus();
+ 	return false;
+ }
+ var patrn=/^(?![a-zA-z]+$)(?!\d+$)(?![!.@#$%^&*]+$)[a-zA-Z\d!.@#$%^&*]{8,20}$/;
+ if (!patrn.exec(myform.password.value)) {
+    alert("密码应同时包括数字、字母、字符中的两种，且长度为8-20，请重新输入！");
+    myform.password.focus();
+ 	return false;
+ }
+ } //end checkinput
+ </script>
+
+</head>
+<body>
+  <form method="post" action="reg.php" onsubmit=" return checkinput();" name="myform">
+	<table width="500px" border="1" cellpadding="12" cellspacing="1" align="center">
+	  <tr>
+	  	<td colspan="2" class="title">用户注册
+	  	  <span class="spa">
+	  	  	[<a style="color: white" href="login.html">返回登录]</a>
+	  	  </span>
+	  	</td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">账 号(由数字组成，8-10位)</td>
+	  	<td><input type="text" name="account" autocomplete="off"></td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">用 户 名(10位以内)</td>
+	  	<td><input type="text" name="username" autocomplete="off"></td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">密　　码(包括字母、数字、字符中的两种，8位以上)</td>
+	  	<td><input type="password" name="password" autocomplete="off"></td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">确认密码</td>
+	  	<td><input type="password" name="password1"></td>
+	  </tr>
+	  <tr>
+	  	<td width="110px">邮　　箱</td>
+	  	<td><input type="email" name="email"></td>
+	  </tr>
+	  <tr>
+	  	<td colspan="2" align="center">
+	  	  <button class="but" style="text-align: center">立即注册</button>
+	  	</td>
+	  </tr>
+	</table>
+</form>
+</body>
+</html>

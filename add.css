@@ -1,0 +1,25 @@
+table,td,tr{
+ border: 1px solid #B10707;
+ }
+ .btn{
+ background-color: #B10707;
+ width: 90px;
+ height: 40px;
+ font-size: 15px;
+ color: white;
+ border: none;
+ }
+ #title{
+ color: White;
+ }
+ .input{
+ border: 1px solid red;
+ width: 200px;
+ height: 20px;
+ }
+ a{
+ color: White;
+ }
+ .right{
+ margin-left: 10px;
+ }
