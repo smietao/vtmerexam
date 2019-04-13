@@ -125,7 +125,7 @@ class UserService{
     $mysqli->close();
     }//end checkUser
 ////////////////////////////////编辑资料更新用户名///////////////////////////////////////
-    function updateName($u,$oldname){
+  function updateName($u,$oldname){
     $mysqli = new mysqli("localhost","root","","mydb");
     $mysqli->set_charset('utf8');//设定字符集
     $sql="update user set
@@ -153,5 +153,28 @@ class UserService{
     $stmt->close();
     $mysqli->close();
   }//end updateName
-  }//end class
+//////////////////检查用户旧密码是否正确以及新密码是否与旧密码一致////////////////////////////
+  function checkPass($u){
+    $mysqli = new mysqli("localhost","root","","mydb");
+    $mysqli->set_charset('utf8');//设定字符集
+    $sql="select count(*) from user where id=? and password=?";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("is",$u->id,$u->password);
+        $stmt->execute();
+        $stmt->bind_result($count);
+        $stmt->fetch();
+        return $count;
+        $stmt->close();
+        $mysqli->close();
+  }//end checkPass
+  function updatePass($u){
+    $mysqli = new mysqli("localhost","root","","mydb");
+    $mysqli->set_charset('utf8');//设定字符集
+    $sql="update user set password=? where id=?";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("si",$u->password,$u->id);
+        $res=$stmt->execute();
+        return $res;
+  }//end updatePass
+}//end class
 ?>
