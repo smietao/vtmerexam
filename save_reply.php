@@ -34,7 +34,7 @@ $addResult=$cs->addComment($c);  //储存评论内容，成功返回1，评论�
       $us = new UserService();
       $accResult=$us->accExperience($m);  //评论累积经验，成功返回1，累积失败返回0
       if ($accResult==1) {  //如果为1说明累积了经验值
-           echo "<script>alert('评论成功，经验值+3');location.href='reply.php';</script>";
+           echo "<script>alert('评论成功，经验值+3');location.href='index.php';</script>";
       }else{  //否则没有累积经验值
             echo "<script>alert('评论成功,因经验值已达上限，经验值+0');location.href='index.php';</script>";
       }

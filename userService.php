@@ -35,17 +35,18 @@ class UserService{
     $select->fetch();
     $resu=0; //先定义$resu,用于判定是否增加了经验值,默认为没有增加经验值
     if ($res<=4997){//如果经验值还没到顶，则发微博加经验值
+    $mysqli1 = new mysqli("localhost","root","","mydb");
     $sql="update user set experience=experience+3 where username=?";
-    $update = $mysqli->prepare($sql);
-    $update->bind_param("s",$m->author);
-    $resu = $update->execute();
+    $stmt = $mysqli1->prepare($sql);
+    $stmt->bind_param("s",$m->author);
+    $resu = $stmt->execute();
     }
     if ($resu) {    //判断是否增加了经验值
       $result=1;   //增加了经验值，返回1
     }else{  //没有增加经验值，返回0
       $result=0;
     }
-    return $result;
+    return $result;   
     $select->close();
     $update->close();
     $mysqli->close();
