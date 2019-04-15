@@ -17,10 +17,10 @@ $_SESSION['limit'] = 0; //没有删除按钮
 $manage = $_SESSION['manage']; //判断是否为管理员
 $page = 0;
 $u = new User();
-$u->username = $_POST['username']; //被访者的用户名，用于查询被访者的id
+$u->username = $_GET['username']; //被访者的用户名，用于查询被访者的id
 $us = new UserService();
 $row = $us->userInfo($u); //该函数以数组形式返回用户信息
-$_SESSION['be_name'] = $_POST['username'];  //记录被访者姓名
+$_SESSION['be_name'] = $_GET['username'];  //记录被访者姓名
 
 if($row){
    //记录访问信息
@@ -34,6 +34,10 @@ if($row){
 }else{
     echo "<script>alert('您搜索的用户名不存在，请稍后重试');location.href='index.php';</script>";
 }
+if ($u->username!=$_SESSION['username']) {  
+//如果被访者不是用户自己，显示添加好友  ?>
+<a href="applys.php?be_id=<?php echo $v->be_id //将被访者的id传出 ?>">[添加好友]</a>
+<?php  }
 $ms = new MicroblogService();
 $m_list = $ms->userMicroblog($u,$page); //查询用户的微博,该函数返回一个数组,$page用于分页
 echo '<h3 align="center">'.'<q>'.$u->username.'</q>'."的历史微博：</h3>";

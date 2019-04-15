@@ -12,11 +12,13 @@ class MyFunction{
 	}
   //end str_to
   function showMicroblog($m_list,$limit){   //显示微博的函数
-    foreach ($m_list as $m) {//循环输出微博   
+    foreach ($m_list as $m) {//循环输出微博
+    $author=$m->author;   
  ?>
     <table width="700px" border="1" cellpadding="12" cellspacing="0" align="center">
  <tr>
- <td colspan="2" class="bg"><?php echo '用户:<em>'.$m->author.'</em>'; ?>
+ <td colspan="2" class="bg">
+  <a href="search.php?username=<?php echo $author?>"><?php echo $author ?></a>
  </td>
  </tr>
  <tr>
